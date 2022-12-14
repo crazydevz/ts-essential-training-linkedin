@@ -16,3 +16,14 @@ let primaryContact: Contact = {
 	name: 'Jamie Johnson',
 	status: 'active',
 };
+
+type ContactFields = keyof Contact;
+
+// const field: ContactFields = 'name';
+
+// function getValue<T, U extends T>(source: T, propName: keyof T) {
+function getValue<T, U extends keyof T>(source: T, propName: U) {
+	return source[propName];
+}
+
+const val = getValue({ min: 10, max: 100 }, 'min');
